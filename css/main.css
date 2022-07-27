@@ -1,0 +1,437 @@
+/*
+Style Name: CSS GRID Review 
+Description: Class File
+Author: Your Name 
+Version: 1.0
+Tags: GRID, Build, Be Awesome
+*/
+
+/*--------------------------------------------------------------
+Accessibility
+--------------------------------------------------------------*/
+
+/* Text meant only for screen readers */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar */
+}
+
+/* -------------
+  Fonts
+-------------- */
+
+
+/* ------------ */
+
+/* -------------
+  Plugins
+-------------*/
+
+/* -------------
+  Reset
+-------------*/
+
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	color: #75451c;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.head, .main {
+	background-color: #fff6dd;
+}
+
+h1, h2, h3, h4, p {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+input, textarea {
+	display: block;
+	margin: 0;
+	padding: 0;
+	background-color: #fff6dd;
+}
+
+#fb, #ig, #youtude {
+	width: 5%;
+}
+
+.logo {
+	width: 20%;
+}
+
+.product-image {
+	width: 50%;
+}
+
+.footer {
+	background-color: #75451c;
+}
+
+.footer p {
+	color: #fff6dd;
+}
+
+/* ___________________________________________
+
+       CSS Guide
+___________________________________________ */
+
+/* 01. General Styles                        
+   02. CSS Grid                          
+/* _____________________________________
+
+   01. General Styles
+   _____________________________________ */
+
+   .hidden {
+       display: none;
+   }
+
+   .box-model {
+	   margin: 1rem;
+	   padding: 1rem;
+	   background: #000;
+   }
+
+   /*------- Floats --------*/
+
+   .f-left {
+	   float: left;
+   }
+
+   .f-right {
+	   float: right;
+   }
+
+   /*------- End Floats --------*/
+   /*------- Font Awesome -------*/
+
+   /*------- End Font Awesome -------*/
+
+   /*------- Mobile Padding ---------*/
+
+   .mobile-padding {
+	   padding: 0 1em;
+   }
+
+   /*------- End Mobile Padding ---------*/
+
+   @supports (grid-area: auto) {
+
+	/*------------ Start Mobile ------------*/
+
+	.site {
+		max-width: 699px;
+	}
+
+	/*------------ Mobile Grid Items ------------*/
+
+	.head, .main > *, .foot {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.one-item {
+		display: grid;
+		grid-column: 1 / span 2;
+		grid-template-columns: 1fr;
+		row-gap: .5em;
+		column-gap: .5em;
+	}
+
+	.two-items {
+		display: grid;
+		grid-column: 1 / span 2;
+		grid-template-columns: repeat(2, 1fr);
+		row-gap: 1em;
+		column-gap: 1em;
+	}
+
+	.three-items {
+		display: grid;
+		grid-column: 1 / span 2;
+		grid-template-columns: repeat(3, 1fr);
+		justify-content: space-evenly;
+		row-gap: .5em;
+		column-gap: .5em;
+	}
+
+	.custom-override {
+		display: grid;
+		grid-template-columns: 1fr repeat(2, minmax(auto, 30em)) 1fr;
+		grid-column: 1 / span 4;
+	}
+
+	.logo {
+		grid-column: 1 / span 1;
+	}
+
+	.nav {
+		grid-column: 2 / span 1;
+	}
+
+	.box-model-bt {
+		margin: 10px;
+	}
+
+	.blog {
+		height: 350px;
+	}
+
+	@media screen and (min-width: 799px) and (max-width: 1023px) {
+		/*-- Tablet Fixes --*/
+	}
+
+   @media screen and (min-width: 1024px) {
+
+		.site {
+			max-width: none;
+		}
+
+		/*------------ Grid Items ------------*/
+
+		.head, .main > *, .foot {
+			display: grid;
+			grid-template-columns: 1fr repeat(2, minmax(auto, 30em)) 1fr;
+		}
+
+		.one-item {
+			display: grid;
+			grid-column: 2 / span 2;
+			grid-template-columns: 1fr;
+		}
+
+		.two-items {
+			display: grid;
+			grid-column: 2 / span 2;
+			grid-template-columns: repeat(2, 1fr);
+			justify-content: space-evenly;
+			row-gap: 2em;
+			column-gap: 2em;
+		}
+
+		.full-width {
+			grid-column: 1 / span 4;
+		}
+
+		.three-items {
+			display: grid;
+			grid-column: 2 / span 2;
+			grid-template-columns: repeat(3, 1fr);
+			justify-content: space-evenly;
+			row-gap: 2em;
+			column-gap: 2em;
+		}
+
+		.four-items {
+			display: grid;
+			grid-column: 2 / span 2;
+			grid-template-columns: repeat(4, 1fr);
+			justify-content: space-evenly;
+			row-gap: 2em;
+			column-gap: 2em;
+		}
+
+		/*------------  End Grid Items ------------*/
+
+			/*------------  Start Header ------------*/
+
+			.logo {
+				display: grid;
+				grid-column: 2 / span 2;
+				grid-template-columns: 1fr;
+			}
+
+			.logo p, .logo img {
+				display:block;
+				margin: 0px auto;
+			}
+
+			.nav {
+				grid-column: 1 / span 4;
+				
+			}
+
+			.social {
+				grid-column: 1 / span 1;
+				
+			}
+			
+			.nav ul {
+				list-style-type: none;
+				padding-left: 10px;
+				text-align: left;
+			}
+			
+			.nav ul li {
+				display: inline;
+				margin-left: 20px;
+			}
+			
+			.nav ul li:first-child {
+				margin-left: 0;
+			}
+			
+			.nav ul li a {
+				color: #f6921e;
+				padding: 5px;
+			}
+			
+			.nav ul li a:hover {
+				padding-bottom: .5em;
+				border-bottom: 2px solid #75451c;
+			
+			}
+			
+			.nav ul li a.selected {
+				color: #75451c;
+				padding: 5px;
+			}
+			
+			#iconNav img {
+				width: 25px;
+				height: 25px;
+			}
+			
+			#iconNav li {
+				display: inline;
+				margin-left: 3px;
+			}
+
+	
+
+			/*------------  End Header ------------*/
+
+		/*----------------------------  Start Home Page ----------------------------*/
+
+		/*------------  Start Top Image ------------*/
+
+		#imageContainer {
+			width:1920px;
+			height:840px;
+			background-color:grey;
+			margin:0 auto;
+			overflow: hidden;
+		}
+
+		#teamImages { position:relative; width:5760px; transition: all .5s; }
+		#teamImages img { float:left; }
+
+		.navList {
+			position: absolute;
+			bottom: 15px;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+		
+		.navList li {
+			list-style: none;
+			display: inline-block;
+			width: 10px;
+			height: 10px;
+			background-color: #f6921e;
+			margin-right: 3px;
+			border-radius: 5px;
+			transition: all 0.4s;
+		}
+
+		.navList a:hover {
+			background-color: #fff;
+		}
+
+
+
+		/* ----- image sprite ----- */
+		.teamContainer {
+			width:150px;
+			height:200px;
+			display:inline-block;
+			overflow:hidden;
+			background-color: #fff;
+			background-repeat:no-repeat;
+			transition:transform .3s;
+			-webkit-transition:-webkit-transform .3s;
+			-moz-transition:-moz-transform .3s;
+		}
+
+		.banner01 { background-position:0px -100px; }
+		.banner01:hover { background-position:0px 0px; }
+
+		.banner02 { background-position:-164px -200px; }
+		.banner02:hover { background-position:-164px 0px; }
+
+		.banner03{ background-position:-340px -200px; }
+		.banner03:hover { background-position:-340px 0px; }
+
+		/* ----- end image sprite ----- */
+
+		/* ----- classes for transitions ----- */
+
+		.scaleUp {
+			-moz-transform:scale(1.7, 1.7);
+			-webkit-transform:scale(1.7, 1.7);
+			transform:scale(1.7, 1.7);
+		}
+
+		.scaleHalfUp {
+			-moz-transform:scale(1.2, 1.2);
+			-webkit-transform:scale(1.2, 1.2);
+			transform:scale(1.2, 1.2);
+		}
+
+
+		/*------------  End Top Image ------------*/
+
+		
+
+		/*------------  Start About ------------*/
+
+		.aboutimage {
+			height: 350px;
+		}
+
+		/*------------  End About ------------*/
+
+		/*------------  Start Blog page ------------*/
+
+		.blog {
+			height: 400px;
+		}
+
+		/*------------  End Blog page ------------*/
+
+		/*----------------------------  End Home Page ----------------------------*/
+	}
+   }
